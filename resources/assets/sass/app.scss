@@ -8,6 +8,11 @@
 // Bootstrap
 @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
 
-#app{
-  padding:15px;
+.page-action{
+  font-style: italic;
+}
+
+.delete_form {
+  width: 110px;
+  float: left;
 }

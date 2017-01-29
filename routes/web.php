@@ -19,11 +19,18 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index');
 
-Route::group(['prefix' => 'beheer'], function () {
+Route::group(['prefix' => 'beheer', 'middleware' => 'auth'], function () {
     //GET
-    Route::get('/kamers/nieuw', 'Rooms@create');
-    Route::get('/kamers', 'Rooms@index');
+    Route::get('/kamers/nieuw', 'Rooms@create')->name('kamer-toevoegen');
+    Route::get('/kamers/bewerken/{id}', 'Rooms@edit')->name('kamer-bewerken');
+    Route::get('/kamers', 'Rooms@index')->name('kamers');
 
     //POST
     Route::post('/kamers/nieuw', 'Rooms@store');
+
+    //PATCH
+    Route::patch('/kamers/bewerken/{id}', 'Rooms@update');
+
+    //DESTROY
+    Route::delete('/kamers/verwijderen/{id}', 'Rooms@destroy')->name('kamer-verwijderen');
 });

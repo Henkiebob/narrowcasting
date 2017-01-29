@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name') }}</title>
 
     <!-- Styles -->
     <link href="/css/app.css" rel="stylesheet">
@@ -50,8 +50,7 @@
                     <ul class="nav navbar-nav navbar-right">
                         <!-- Authentication Links -->
                         @if (Auth::guest())
-                            <li><a href="{{ url('/login') }}">Login</a></li>
-                            <li><a href="{{ url('/register') }}">Register</a></li>
+                            <li><a href="{{ url('/login') }}">Inloggen</a></li>
                         @else
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
@@ -77,8 +76,24 @@
                 </div>
             </div>
         </nav>
+        <div class="container">
 
-        @yield('content')
+          @if (Session::exists('notification'))
+
+              <div class="alert {{ Session::get('notification.type') }}" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                {{ Session::get('notification.message')}}
+              </div>
+
+          @endif
+
+          <div class="row">
+            <div class="col-md-2">
+              <a href="{{route('kamers')}}">Kamer overzicht</a>
+            </div>
+            @yield('content')
+          </div>
+        </div>
     </div>
 
     <!-- Scripts -->
