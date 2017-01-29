@@ -79,18 +79,18 @@
         <div class="container">
 
           @if (Session::exists('notification'))
-
               <div class="alert {{ Session::get('notification.type') }}" role="alert">
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                 {{ Session::get('notification.message')}}
               </div>
-
           @endif
 
           <div class="row">
-            <div class="col-md-2">
-              <a href="{{route('kamers')}}">Kamer overzicht</a>
-            </div>
+              <div class="col-md-2">
+                <ul class="nav nav-pills nav-stacked">
+                  <li role="presentation"{{ Route::is('kamers') ? ' class=active' : null }}> <a href="{{route('kamers')}}">Kamers</a></li>
+                </ul>
+              </div>
             @yield('content')
           </div>
         </div>

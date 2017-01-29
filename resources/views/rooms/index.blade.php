@@ -6,7 +6,7 @@
       <div class="panel panel-default">
          <div class="panel-heading">
            <h1>Kamer overzicht</h1>
-           <a href="{{route('kamer-toevoegen')}}">Kamer toevoegen</a>
+           <a href="{{route('kamer-toevoegen')}}" class="btn btn-success">Kamer toevoegen</a>
          </div>
           <table class="table">
             <thead>
@@ -22,6 +22,7 @@
                   <td>
                     <a href="{{route('kamer-bewerken', ['id' => $room->id])}}" class="btn btn-warning">Bewerken</a>
                       @include('rooms.form-delete')
+                    <a href="#" class="btn btn-success">Activiteit toevoegen</a>
                   </td>
                 </tr>
               @endforeach
