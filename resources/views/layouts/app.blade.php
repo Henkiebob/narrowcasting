@@ -12,13 +12,10 @@
 
     <!-- Styles -->
     <link href="/css/app.css" rel="stylesheet">
-<<<<<<< HEAD
     <link href="/css/bootstrap-datepicker.min.css" rel="stylesheet">
     <link href="/css/bootstrap-datepicker.min.css" rel="stylesheet">
     <link href="/css/jquery.timepicker.css" rel="stylesheet">
-=======
 
->>>>>>> 9663c25e9d487dddb35e9aab9511365b0e3822dd
     <!-- Scripts -->
     <script>
         window.Laravel = {!! json_encode([
@@ -104,7 +101,6 @@
 
     <!-- Scripts -->
     <script src="/js/app.js"></script>
-<<<<<<< HEAD
     <script
       src="https://code.jquery.com/jquery-3.1.1.min.js"
       integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
@@ -113,7 +109,5 @@
     <script src="{{asset('js/locales/bootstrap-datepicker.nl.min.js')}}" charset="UTF-8"></script>
     <script src="{{asset('js/jquery.timepicker.min.js')}}" charset="UTF-8"></script>
     @yield('scripts')
-=======
->>>>>>> 9663c25e9d487dddb35e9aab9511365b0e3822dd
 </body>
 </html>
