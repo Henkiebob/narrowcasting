@@ -11,13 +11,10 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index');
+Route::get('/', 'HomeController@index');
 
 Route::group(['prefix' => 'beheer', 'middleware' => 'auth'], function () {
     //GET
@@ -25,6 +22,7 @@ Route::group(['prefix' => 'beheer', 'middleware' => 'auth'], function () {
     Route::get('/kamers/bewerken/{id}', 'Rooms@edit')->name('kamer-bewerken');
     Route::get('/kamers', 'Rooms@index')->name('kamers');
     Route::get('/activiteit/nieuw/{room_id}', 'Activities@create')->name('activiteit-toevoegen');
+    Route::get('/kamer/{id}', 'Rooms@show')->name('kamer-bekijken');
 
     //POST
     Route::post('/kamers/nieuw', 'Rooms@store');

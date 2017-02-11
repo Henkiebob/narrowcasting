@@ -1,9 +1,14 @@
 
 @section('scripts')
 <script type="text/javascript">
+  var startDate = moment().format('D-M-YYYY');
+
+  $('#date').val(startDate);
   $('.datepicker').datepicker({
       language: 'nl',
+      defaultDate: startDate,
   });
+
 
   $('.timepicker').timepicker({
      'scrollDefault': 'now',
@@ -26,7 +31,7 @@
   <div class="form-group">
     <div class="input-group date datepicker">
       <label for="time_start">Datum:</label>
-      <input type="text" name="date" class="form-control">
+      <input type="text" name="date" id="date" class="form-control">
       </div>
   </div>
 

@@ -88,10 +88,13 @@
               </div>
           @endif
 
+
           <div class="row">
               <div class="col-md-2">
                 <ul class="nav nav-pills nav-stacked">
-                  <li role="presentation"{{ Route::is('kamers') ? ' class=active' : null }}> <a href="{{route('kamers')}}">Kamers</a></li>
+                    @if (Auth::user())
+                      <li role="presentation"{{ Route::is('kamers') ? ' class=active' : null }}> <a href="{{route('kamers')}}">Kamers</a></li>
+                    @endif
                 </ul>
               </div>
             @yield('content')
@@ -108,6 +111,7 @@
     <script src="{{asset('js/bootstrap-datepicker.min.js')}}"></script>
     <script src="{{asset('js/locales/bootstrap-datepicker.nl.min.js')}}" charset="UTF-8"></script>
     <script src="{{asset('js/jquery.timepicker.min.js')}}" charset="UTF-8"></script>
+    <script src="{{asset('js/moment.js')}}" charset="UTF-8"></script>
     @yield('scripts')
 </body>
 </html>

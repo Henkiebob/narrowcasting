@@ -17,6 +17,12 @@ class Rooms extends Controller
       return view('rooms.new');
     }
 
+    public function show($id)
+    {
+      $room = new Room();
+      return view('rooms.show', ['room' => Room::findOrFail($id), 'current_activities' => $room->getCurrentActivities($id)]);
+    }
+
     public function edit($id)
     {
       return view('rooms.edit', ['room' => Room::findOrFail($id)]);
@@ -49,8 +55,5 @@ class Rooms extends Controller
         return redirect('/beheer/kamers');
     }
 
-    public function show()
-    {
 
-    }
 }
