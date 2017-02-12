@@ -23,7 +23,7 @@ Route::group(['prefix' => 'beheer', 'middleware' => 'auth'], function () {
     Route::get('/kamers', 'Rooms@index')->name('kamers');
     Route::get('/activiteit/nieuw/{room_id}', 'Activities@create')->name('activiteit-toevoegen');
     Route::get('/kamer/{id}', 'Rooms@show')->name('kamer-bekijken');
-
+    Route::get('/activiteiten', 'Activities@index')->name('activiteiten');
     //POST
     Route::post('/kamers/nieuw', 'Rooms@store');
     Route::post('/activiteit/nieuw/{room_id}', 'Activities@store');

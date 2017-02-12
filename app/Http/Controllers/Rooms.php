@@ -50,6 +50,7 @@ class Rooms extends Controller
     public function destroy($id, Request $request)
     {
         $room = Room::findOrFail($id);
+        $room->activities()->delete();
         $room->delete();
         $request->session()->flash('notification', ['message' => 'Kamer is verwijderd', 'type' => 'alert-danger']);
         return redirect('/beheer/kamers');

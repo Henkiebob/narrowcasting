@@ -18,10 +18,12 @@
             <tbody>
               @foreach($rooms as $room)
                 <tr>
-                  <td>{{$room->name}}</td>
+                  <td><a href="{{ route('kamer-bekijken', ['id' => $room->id]) }}">{{$room->name}}</a></td>
                   <td>
-                    <a href="{{route('activiteit-toevoegen', ['room_id' => $room->id])}}" class="btn btn-success">Activiteit toevoegen</a>
-                    <a href="{{route('kamer-bewerken', ['id' => $room->id])}}" class="btn btn-warning">Bewerken</a>
+                    <a href="{{ route('kamer-bewerken', ['id' => $room->id]) }}" type="button" class="btn btn-default" aria-label="Left Align">
+                      <span class="glyphicon glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                    </a>
+                    <a href="{{ route('activiteit-toevoegen', ['room_id' => $room->id]) }}" class="btn btn-success">Activiteit toevoegen</a>
                     @include('rooms.form-delete')
                   </td>
                 </tr>

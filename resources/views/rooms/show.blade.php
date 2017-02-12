@@ -21,13 +21,19 @@
           </tr>
         </thead>
         <tbody>
-            @foreach($current_activities as $activity)
+            @if($current_activities)
+              @foreach($current_activities as $activity)
+                <tr>
+                  <td>  {{$activity->name}} </td>
+                  <td>  {{ date( 'h:i' , strtotime($activity->start_date)) }} </td>
+                  <td>  {{ date( 'h:i' , strtotime($activity->end_date)) }} </td>
+                </tr>
+              @endforeach
+            @else
               <tr>
-              <td>  {{$activity->name}} </td>
-              <td>  {{ date( 'h:i:s' , strtotime($activity->start_date)) }} </td>
-              <td>  {{ date( 'h:i:s' , strtotime($activity->end_date))}} </td>
+                <td>Er zijn nog geen activiteiten voor vandaag</td>
               </tr>
-            @endforeach
+            @endif
           </tbody>
       </table>
   </div>

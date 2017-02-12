@@ -32,13 +32,16 @@ class Activities extends Controller
   public function getFormattedDate($date, $time)
   {
     $tz = 'Europe/Amsterdam';
-
-
     $date = explode('-', $date);
     $time = explode(':', $time);
     $formatted_date = Carbon::create($date[2], $date[1], $date[0], $time[0], $time[1], '00', $tz);
-
     return $formatted_date;
+  }
+
+  public function index()
+  {
+    $activity = new Activity();
+    return view('activities.index', ['all_current_activities' => $activity->getCurrentActivities()]);
   }
 
 }

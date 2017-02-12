@@ -94,6 +94,7 @@
                 <ul class="nav nav-pills nav-stacked">
                     @if (Auth::user())
                       <li role="presentation"{{ Route::is('kamers') ? ' class=active' : null }}> <a href="{{route('kamers')}}">Kamers</a></li>
+                      <li role="presentation"{{ Route::is('activiteiten') ? ' class=active' : null }}> <a href="{{route('activiteiten')}}">Activiteiten</a></li>
                     @endif
                 </ul>
               </div>

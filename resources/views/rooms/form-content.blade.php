@@ -5,7 +5,7 @@
   @endif
 
   <div class="form-group">
-    <label for="title">Titel:</label>
+    <label for="title">Naam:</label>
     <input type="text" name="name" class="form-control" id="name" value="@if(isset($room)) {{$room->name}} @endif">
   </div>
 
